@@ -1,84 +1,79 @@
+Markdown
+# Proyecto Checador (Sistema de Control de Asistencia)
 
+Sistema  control de asistencia y registro mediante reconocimiento facial.
+UTMA Programación para Inteligencia Artificial  9B TIID
 
-Checador Facial - Sistema de Control de Asistencia Biométrico
-UTMA Programación para Inteligencia Artificial
-9B TIID
+---
 
+## Tecnologías Utilizadas
 
+* **Backend:** Python (FastAPI / Flask)
+* **Frontend:** React Native con Expo / Tailwind CSS (NativeWind)
+* **Base de Datos:** PostgreSQL / SQLite
+* **IA / Visión:** OpenCV / Face Recognition (Python)
 
+---
 
+## Estructura del Proyecto
 
-Tecnologías Utilizadas
-Backend: Python 3.10+, FastAPI, Uvicorn, PyMongo / Motor.
-Biometría e IA: face_recognition, NumPy, Pillow (PIL).
-Frontend: React Native (Expo Web / Mobile), JavaScript, Axios.
-Base de Datos: MongoDB.
+```text
+proyecto-checador/
+├── backend/            # API REST y lógica del servidor
+│   ├── app/
+│   │   ├── dataset/    # Imágenes para entrenamiento/reconocimiento (Ignorado por Git)
+│   │   ├── routes/     # Endpoints de asistencia, usuarios, horarios, etc.
+│   │   └── models.py   # Modelos de base de datos
+│   └── requirements.txt
+├── frontend/           # Aplicación móvil/web con Expo
+│   ├── assets/         # Recursos gráficos (iconos, splash, etc.)
+│   └── src/            # Componentes y servicios de la app
+├── .gitignore          # Archivos ignorados por Git
+└── README.md
 
-
-Esquema de Base de Datos (MongoDB)
-
-usuarios: Contiene la información del personal y sus matriz numéricas de rostro (encoding / face_encoding).
-attendance: Registra la bitácora de asistencia guardando user_id, name, fecha (YYYY-MM-DD), hora (HH:MM:SS) y nivel de coincidencia.
-
-
-
-Endpoints de la API REST
-POST /api/v1/checador/marcar: Recibe una fotografía desde la cámara en formato multipart/form-data, valida la coincidencia facial y guarda el registro en la base de datos.
-
-GET /api/v1/checador/historial: Devuelve la lista de asistencias registradas con su fecha, hora y nombre de usuario.
-
-
-
-
-
-
- Instalación y Configuración
+ Instalación y Configuración Local
 1. Clonar el repositorio
 Bash
-git clone 
+git clone (https://github.com/Ramirez7u7/proyecto-checador)
 cd proyecto-checador
-2. Configurar el Backend (FastAPI)
+2. Configurar el Backend
+Entra a la carpeta del backend y crea un entorno virtual:
+
 Bash
-# Entrar a la carpeta del backend
 cd backend
-
-# Crear y activar entorno virtual (Windows)
 python -m venv venv
-.\venv\Scripts\activate
+Activa el entorno virtual:
 
-# Instalar dependencias
-pip install fastapi uvicorn pymongo face_recognition numpy pillow
-3. Configurar el Frontend (React Native / Expo)
+Windows: venv\Scripts\activate
+
+Linux/Mac: source venv/bin/activate
+
+Instala las dependencias:
+
 Bash
-# Entrar a la carpeta del frontend
+pip install -r requirements.txt
+Carpeta de Dataset: Crea manualmente la carpeta del dataset dentro de app/:
+
+Bash
+mkdir app/dataset
+(Coloca aquí las imágenes de prueba para el reconocimiento).
+
+3. Configurar el Frontend
+Entra a la carpeta del frontend e instala las dependencias:
+
+Bash
 cd ../frontend
-
-# Instalar dependencias de Node.js
 npm install
-Modo de Uso
-Paso 1: Precargar rostros a MongoDB
-Agrega las fotos de los usuarios en backend/app/dataset/ dentro de carpetas con su nombre.
+Inicia el servidor de desarrollo de Expo:
 
-Ejecuta el script de precarga:
-
-Bash
-python cargar_dataset.py
-Paso 2: Iniciar el Backend
-Bash
-uvicorn app.main:app --reload
-Servidor activo en: http://localhost:8000
-
-Paso 3: Iniciar el Frontend
 Bash
 npx expo start
-Presiona w para abrir la versión Web en el navegador.
 
+ Variables de Entorno
+Asegúrate de crear un archivo .env en la raíz del proyecto o en las carpetas correspondientes con la siguiente estructura (si aplica):
 
+Fragmento de código
+DATABASE_URL=tu_conexion_a_bd
+PORT=8000
 
-
- Funcionalidades de la App
-Cámara en Vivo: Transmisión continua para marcaje ágil.
-
-Marcaje Biométrico: Validación instantánea contra MongoDB.
-
-Historial de Entradas: Ventana modal con tarjetas compactas que muestran las asistencias registradas por fecha y hora.
+***
