@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pymongo
+motor
+pydantic
+email-validator
+python-dotenv
+opencv-python
+python-multipart
+tf-keras
+deepface

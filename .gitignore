@@ -1,0 +1,57 @@
+venv/
+env/
+ENV/
+backend/venv/
+backend/env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Archivos pesados de modelos/IA (si aplica)
+*.h5
+*.onnx
+*.pkl
+
+# --- JavaScript & Frontend (Expo) ---
+node_modules/
+frontend/node_modules/
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+/ios
+/android
+
+# Metro & Debug
+.metro-health-check*
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# OS & Environment
+.DS_Store
+Thumbs.db
+*.pem
+.env*.local
+.env
+
+# TypeScript
+*.tsbuildinfo
+backend/app/dataset/
+
+frontend/.claude/
+
+
+**/ignora
+**/ignora.txt
