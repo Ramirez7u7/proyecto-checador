@@ -55,7 +55,7 @@ cd ../frontend
 
 # Instalar dependencias de Node.js
 npm install
-🚀 Modo de Uso
+Modo de Uso
 Paso 1: Precargar rostros a MongoDB
 Agrega las fotos de los usuarios en backend/app/dataset/ dentro de carpetas con su nombre.
 
